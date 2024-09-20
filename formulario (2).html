@@ -1,7 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
+
+    <!-- 
+    <link rel="stylesheet" type="text/css" href="./CSS/body.css"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+
     <style type="text/css">
         html {
             font-size: 14px;
@@ -13,130 +19,110 @@
             text-align: center;
             margin: 0;
             padding: 20px 0;
-            color: #00539F;
-            text-shadow: 3px 3px 1px black;
+            color: #4E2C33;
+            text-shadow: 3px 3px 1px rgb(255, 255, 255);
         }
 
         html {
-            background-color: #00539F;
+            background-color: #4E2C33;
         }
 
         body {
-            width: 600px;
+            width: 800px;
             margin: 0 auto;
-            background-color: #00a2ff91;
+            background-color: #d8a6de91;
             padding: 0 20px 20px 20px;
-            border: 5px solid black;
+            border: 5px solid rgb(255, 255, 255);
+        }
+
+        img {
+            border-radius: 50%;
         }
 
         .botao {
             font-size: 1.5em;
-            background: rgb(15, 7, 92);
+            background: #4E2C33;
             border: 0;
             margin-bottom: 1em;
-            color: #FFF;
+            color: #d3ada5;
             padding: 0.2em 0.6em;
             box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
             text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
         }
     </style>
-
     </style>
+    <title>Formato CPF</title>
+    <script src="script.js"></script>
 </head>
 
 <body>
-    <!-- <form id="frmTeste" action="http://www.google.com/search" method="get">
-        <label>Google: <input type="search" id= "txtBusca" /></label>
-        <input type="submit" value="Buscar..." />
-    </form> 
-    -->
-    <h1>Formulário de Reserva - Hotel Estaciano </h1>
+
+    <h1>Formulário de adoção</h1>
     <!--Link abrindo outra janela guia-->
-    <a href="http://estacio.br" target="_blank">
-        <h3>Voltar para Estácio</h3>
+    <a href="./Projeto-Des.Web.modificacaoes.html" target="_blank">
+        <h3>Voltar</h3>
     </a>
-    <a name="topo">
-        <h1>Projeto</h1>
-    </a>
+
     <!-- IMAGEM -->
-    <figure>
-        <figcaption>Rio da Janeiro</figcaption>
-        <img src="./img rio.jpg" />
-    </figure>
-    <!-- FORMULÁRIO USANDO JAVASCRIPT -->
-    <form action="#" method="post" oninput="total.value = (noites.valueAsNumber * 250)
-+ ((hospede.valueAsNumber - 1)*50)">
+
+    <img src="./Imagens/adoção1.jpg" alt="gato-adocao" width="300px" height="300px" />
+
+    <!-- FORMULÁRIO  -->
+    <form action="#" method="post">
 
         <fieldset>
-            <legend>Dados da reserva</legend>
+            <legend>Dados</legend>
             <!-- CONTAINER -->
             <div class="campo">
-                <label>Nome:</label>
+                <label><span style="color: red"> * </span>Nome do adotante:</label>
                 <input type="text" id="nome" name="nome" placeholder="Digite o nome..." style="width: 20em" required />
                 <br>
             </div>
             <br>
             <div class="campo">
-                <label class="checkbox">
+                <label><span style="color: red"> * </span>E-mail:</label>
+                <input type="email" id="email" name="email" placeholder="Digite o e-mail para contato..." required />
+                <br>
+            </div>
+            <br>
+            <div class="campo">
+                <label><span style="color: red"> * </span>Celular:</label>
+                <input id="celular" placeholder="(ddd)(999999999)" required />
+
+            </div>
+            <br>
+            <div class="campo">
+                <label><span style="color: red"> * </span>Digite seu CPF:</label>
+                <input type="text" name="cpf" id="cpf" placeholder="xxx.xxx.xxx-xx" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+                    \ title="Digite um CPF no formato: xxx.xxx.xxx-xx" required>
+                <br>
+            </div>
+            <br>
+            <div class="campo">
+                <label class="checkbox">Escolha o sexo do gatinho:
                     <input type="radio" name="sexo" value="masculino" />Masculino
                 </label>
                 <label class="checkbox">
                     <input type="radio" name="sexo" value="Feminino" />Feminino
                 </label>
                 <br>
+                <br>
+
                 <div class="campo">
-                    <label>E-mail:</label>
-                    <input type="email" id="email" name="email" required />
+                    <label>Mensagem:</label>
+                    <textarea name="message" style="width:30em" placeholder="Preferência de cor da pelagem?"></textarea>
                     <br>
-                    <div class="campo">
-                        <label> Data de chegada:</label>
-                        <input type="date" id="dt_chegada" name="dt_chegada" required />
-                        <br>
-                        <br>
-                        <div class="campo">
-                            <label>Número de noites (R$250,00 por noite):</label>
-                            <input type="number" id="noites" value="1" min="1" max="30" required />
-                            <br>
-                            <br>
-                        </div>
-                        <fieldset class="grupo">
-                            <div class="campo">
-                                <label>Total estimado:</label>
-                                R$<output id="total" name="total">250</output>.00
-                                <br>
-                            </div>
-                        </fieldset>
-                        <br>
-                        <div class="campo">
-                            <label>Mensagem</label>
-                            <textarea name="message" style="width:40em"
-                                placeholder="Algum comentário extra?"></textarea>
-                            <br>
-                            <br>
-                        </div>
-                        <div class="campo">
-                            <label>Código promocional:</label>
-                            <input type="text" id="promo" name="promo" maxlength="6" pattern="[A-Za-z0-9]{6}"
-                                title="Código promocional consiste em 6 caracteres alfanuméricos." />
-                            <br>
-                            <br>
-                        </div>
-                        <div class="campo">
-                            <label>Newsletter</label>
-                            <label class="checkbox">
-                                <input type="checkbox" name="newsletter" value="1" />Gostaria de receber a nossa
-                                Newsletter?</label>
-                            <br>
-                            <br>
-                        </div>
-                        <button class="botao submit" type="submit" name="submit">Requerer reserva</button>
-                    </div>
+                    <br>
                 </div>
+                <br>
+
+                <button class="botao submit" type="submit" name="submit">Enviar formulário</button>
+            </div>
+            </div>
             </div>
         </fieldset>
     </form>
-    <a href="topo">
-        <p>Voltar ao início</p>
+
     </a>
 </body>
 
